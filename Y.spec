@@ -6,7 +6,7 @@ Release:	0.1
 License:	GPL
 Group:		X
 Group(pl):	X
-Source0:	http://www.efaref.net/arch/2004/Y/Y--devel--0.2/patch-1/Y--devel--0.2--patch-1.tar.gz
+Source0:	http://www.efaref.net/arch/2004/Y/Y--devel/Y--devel--0.2/patch-1/Y--devel--0.2--patch-1.tar.gz
 # Source0-md5:	30bce6027bcb36b39fc89d8cff98e2b0
 BuildRequires:	freetype-devel
 BuildRequires:	SDL-devel
