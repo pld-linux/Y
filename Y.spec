@@ -1,106 +1,144 @@
-Summary:	Y Windows
-Summary(pl):	Y Windows
+Summary:	Y Windows - modern windowing system
+Summary(pl):	Y Windows - nowoczesny system okienkowy
 Name:		Y
 Version:	0.2
 Release:	0.1
-License:	GPL
-Group:		X
-Group(pl):	X
+License:	LGPL (communication libraries), CPL (yiterm), GPL (the rest)
+Group:		Libraries
 Source0:	http://www.efaref.net/arch/2004/Y/Y--devel/Y--devel--0.2/patch-1/Y--devel--0.2--patch-1.tar.gz
 # Source0-md5:	30bce6027bcb36b39fc89d8cff98e2b0
-BuildRequires:	freetype-devel
-BuildRequires:	SDL-devel
-BuildRequires:	libsigc++1-devel
-#Requires:
-URL:		http://www.y-windows.org/	
+Patch0:		%{name}-make.patch
+URL:		http://www.y-windows.org/
+BuildRequires:	SDL-devel >= 1.2.0
+BuildRequires:	autoconf >= 2.53
+BuildRequires:	automake >= 1.7
+BuildRequires:	freetype-devel >= 2.1.3
+BuildRequires:	libiterm-devel >= 0.5
+BuildRequires:	libsigc++1-devel >= 1.0.0
+BuildRequires:	libtool >= 2:1.5
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-- -- empty --
+Y is an implementation of a modern windowing system. The Y design has
+the following features:
+- network transparency
+- modularity
+- in-server implementation of widgets
+- consistency and themeability
+- support for hardware acceleration
+- better internationalization, localization and accessibility.
 
 %description -l pl
-- -- pusty --
+Y to implementacja nowoczesnego systemu okienkowe. Projekt Y ma
+nastêpuj±ce cechy:
+- przezroczysto¶æ wzglêdem sieci
+- modularno¶æ
+- implementacja widgetów w serwerze
+- spójno¶æ i mo¿liwo¶æ u¿ywania motywów
+- obs³uga akceleracji sprzêtowej
+- lepsze umiêdzynarodowienie, lokalizacja i u³atwienia dostêpu.
 
 %package devel
-Summary:	devel
-Group:		X
-Requires:	%{name} = %{version}
+Summary:	Header files for Y Windows libraries
+Summary(pl):	Pliki nag³ówkowe bibliotek Y Windows
+License:	LGPL
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+# for libY++: libsigc++1-devel
+
 %description devel
-- -- empty --
+Header files for Y Windows libraries.
 
 %description devel -l pl
-- -- pusty --
+Pliki nag³ówkowe bibliotek Y Windows.
 
 %package static
-Summary:	static
-Group:		X
-Requires:	%{name}-devel = %{version}
+Summary:	Static Y Windows libraries
+Summary(pl):	Statyczne biblioteki Y Windows
+License:	LGPL
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
 %description static
-- -- empty --
+Static Y Windows libraries.
 
 %description static -l pl
-- -- pusty --
+Statyczne biblioteki Y Windows.
 
 %package utils
-Summary:	utils
-Group:		X
-Requires:	%{name} = %{version}
+Summary:	Y Windows utilities
+Summary(pl):	Programy u¿ytkowe Y Windows
+License:	CPL (yiterm), GPL (the rest)
+Group:		Applications
+Requires:	%{name} = %{version}-%{release}
+
 %description utils
-- -- empty --
+Y Windows utilities.
 
 %description utils -l pl
-- -- pusty --
+Programy u¿ytkowe Y Windows.
 
 %prep
 %setup -q -n Y--devel--0.2--patch-1
-
-#%patch
+%patch0 -p1
 
 %build
 ./autogen.sh
-%configure \
-	--disable-yiterm
-%{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
-%post
-/sbin/ldconfig
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-%postun
-/sbin/ldconfig
+rm -f $RPM_BUILD_ROOT%{_libdir}/Y/{*,*/*}/*.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
-%doc
-%{_sysconfdir}/Y
+# COPYING contains only notes which part is on which license
+%doc AUTHORS COPYING ChangeLog TODO
+# communication libs
+%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+
+# Y server
 %attr(755,root,root) %{_bindir}/Y
 %attr(755,root,root) %{_bindir}/startY
-%{_libdir}/*.la
-%attr(755,root,root) %{_libdir}/Y/*/*.so
-%{_libdir}/Y/*/*.la
-%attr(755,root,root) %{_libdir}/Y/*/*/*.so
-%{_libdir}/Y/*/*/*.la
-%attr(755,root,root) %{_libdir}/*.so.0.0.0
+%dir %{_libdir}/Y
+%dir %{_libdir}/Y/driver
+%dir %{_libdir}/Y/driver/input
+%attr(755,root,root) %{_libdir}/Y/driver/input/*.so
+%dir %{_libdir}/Y/driver/ipc
+%attr(755,root,root) %{_libdir}/Y/driver/ipc/*.so
+%dir %{_libdir}/Y/driver/video
+%attr(755,root,root) %{_libdir}/Y/driver/video/fbdev.so
+%dir %{_libdir}/Y/theme
+%attr(755,root,root) %{_libdir}/Y/theme/*.so
+%dir %{_libdir}/Y/wm
+%attr(755,root,root) %{_libdir}/Y/wm/*.so
+%{_sysconfdir}/Y
+
+# driver-sdl
+%attr(755,root,root) %{_libdir}/Y/driver/video/sdl.so
 
 %files devel
 %defattr(644,root,root,755)
-%doc
+%attr(755,root,root) %{_libdir}/lib*.so
+%{_libdir}/*.la
 %{_includedir}/Y
 
 %files static
 %defattr(644,root,root,755)
-%doc
-%{_libdir}/Y/*/*.a
-%{_libdir}/Y/*/*/*.a
 %{_libdir}/*.a
 
 %files utils
 %defattr(644,root,root,755)
-%doc
+%doc COPYING.CPL
 %attr(755,root,root) %{_bindir}/y*
