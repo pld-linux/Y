@@ -79,11 +79,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc
 %{_sysconfdir}/Y
-%{_bindir}/Y
-%{_bindir}/startY
-%{_libdir}/*.la
-%{_libdir}/Y
-%{_libdir}/*.so.0.0.0
+%attr(755,root,root) %{_bindir}/Y
+%attr(755,root,root) %{_bindir}/startY
+%attr(755,root,root) %{_libdir}/*.la
+%attr(755,root,root) %{_libdir}/Y/*/*.so
+%attr(755,root,root) %{_libdir}/Y/*/*.la
+%attr(755,root,root) %{_libdir}/Y/*/*/*.so
+%attr(755,root,root) %{_libdir}/Y/*/*/*.la
+%attr(755,root,root) %{_libdir}/*.so.0.0.0
 
 %files devel
 %defattr(644,root,root,755)
@@ -93,9 +96,11 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %doc
+%attr(644,root,root) %{_libdir}/Y/*/*.a
+%attr(644,root,root) %{_libdir}/Y/*/*/*.a
 %{_libdir}/*.a
 
 %files utils
 %defattr(644,root,root,755)
 %doc
-%{_bindir}/y*
+%attr(755,root,root) %{_bindir}/y*
