@@ -8,6 +8,7 @@ Group:		Libraries
 Source0:	http://www.efaref.net/arch/2004/Y/Y--devel/Y--devel--0.2/patch-1/Y--devel--0.2--patch-1.tar.gz
 # Source0-md5:	30bce6027bcb36b39fc89d8cff98e2b0
 Patch0:		%{name}-make.patch
+Patch1:		%{name}-clients.patch
 URL:		http://www.y-windows.org/
 BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	autoconf >= 2.53
@@ -81,6 +82,7 @@ Programy u¿ytkowe Y Windows.
 %prep
 %setup -q -n Y--devel--0.2--patch-1
 %patch0 -p1
+%patch1 -p1
 
 %build
 ./autogen.sh

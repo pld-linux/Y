@@ -1,0 +1,57 @@
+diff -Naur Y--devel--0.2--patch-1-orig/clients/calculator/Makefile.am Y--devel--0.2--patch-1/clients/calculator/Makefile.am
+--- Y--devel--0.2--patch-1-orig/clients/calculator/Makefile.am	2004-01-29 21:30:13.000000000 +0000
++++ Y--devel--0.2--patch-1/clients/calculator/Makefile.am	2004-02-24 12:40:46.000000000 +0000
+@@ -7,7 +7,7 @@
+ 
+ noinst_HEADERS = calculator.h
+ ycalculator_SOURCES = calculator.cc
+-ycalculator_LDADD = $(LIBSIGC_LIBS) \
+-                    -L$(top_builddir)/libY -lY \
+-                    -L$(top_builddir)/libYc++ -lYc++
++ycalculator_LDADD = -L$(top_builddir)/libY -lY \
++                    -L$(top_builddir)/libYc++ -lYc++ \
++                    $(LIBSIGC_LIBS)
+ 
+diff -Naur Y--devel--0.2--patch-1-orig/clients/clock/Makefile.am Y--devel--0.2--patch-1/clients/clock/Makefile.am
+--- Y--devel--0.2--patch-1-orig/clients/clock/Makefile.am	2004-01-29 21:30:13.000000000 +0000
++++ Y--devel--0.2--patch-1/clients/clock/Makefile.am	2004-02-24 12:41:05.000000000 +0000
+@@ -7,7 +7,7 @@
+ 
+ noinst_HEADERS = clock.h
+ yclock_SOURCES = clock.cc
+-yclock_LDADD = $(LIBSIGC_LIBS) \
+-                    -L$(top_builddir)/libY -lY \
+-                    -L$(top_builddir)/libYc++ -lYc++
++yclock_LDADD = -L$(top_builddir)/libY -lY \
++                    -L$(top_builddir)/libYc++ -lYc++ \
++                    $(LIBSIGC_LIBS)
+ 
+diff -Naur Y--devel--0.2--patch-1-orig/clients/sample/Makefile.am Y--devel--0.2--patch-1/clients/sample/Makefile.am
+--- Y--devel--0.2--patch-1-orig/clients/sample/Makefile.am	2004-01-29 21:30:13.000000000 +0000
++++ Y--devel--0.2--patch-1/clients/sample/Makefile.am	2004-02-24 12:41:23.000000000 +0000
+@@ -8,7 +8,7 @@
+ 
+ noinst_HEADERS = sample.h
+ ysample_SOURCES = sample.cc
+-ysample_LDADD = $(LIBSIGC_LIBS) \
+-                -L$(top_builddir)/libY -lY \
+-                -L$(top_builddir)/libYc++ -lYc++
++ysample_LDADD = -L$(top_builddir)/libY -lY \
++                -L$(top_builddir)/libYc++ -lYc++ \
++                $(LIBSIGC_LIBS)
+ 
+diff -Naur Y--devel--0.2--patch-1-orig/clients/terminal/Makefile.am Y--devel--0.2--patch-1/clients/terminal/Makefile.am
+--- Y--devel--0.2--patch-1-orig/clients/terminal/Makefile.am	2004-01-29 21:30:13.000000000 +0000
++++ Y--devel--0.2--patch-1/clients/terminal/Makefile.am	2004-02-24 12:48:41.000000000 +0000
+@@ -9,8 +9,8 @@
+ 
+ noinst_HEADERS = terminal.h VTScreenView.h 
+ yiterm_SOURCES = terminal.cc VTScreenView.cc 
+-yiterm_LDADD = $(LIBSIGC_LIBS) $(LIBITERM_LIBS) \
+-                    -L$(top_builddir)/libY -lY \
+-                    -L$(top_builddir)/libYc++ -lYc++
++yiterm_LDADD = -L$(top_builddir)/libY -lY \
++                    -L$(top_builddir)/libYc++ -lYc++ \
++                    $(LIBSIGC_LIBS) $(LIBITERM_LIBS)
+ 
+ endif
