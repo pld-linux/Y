@@ -2,11 +2,12 @@ Summary:	Y Windows
 Summary(pl):	Y Windows
 Name:		Y
 Version:	0.2
-Release:	1
+Release:	0.1
 License:	GPL
 Group:		X
 Group(pl):	X
 Source0:	http://www.earef.net/arch/2004/Y/Y--devel--0.2/patch-1/Y--devel--0.2--patch-1.tar.gz
+# Source0-md5:	30bce6027bcb36b39fc89d8cff98e2b0
 BuildRequires:	freetype-devel
 BuildRequires:	SDL-devel
 BuildRequires:	libsigc++1-devel
