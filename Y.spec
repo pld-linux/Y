@@ -12,7 +12,7 @@ Patch1:		%{name}-clients.patch
 URL:		http://www.y-windows.org/
 BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	autoconf >= 2.53
-BuildRequires:	automake >= 1.7
+BuildRequires:	automake >= 1:1.7
 BuildRequires:	freetype-devel >= 2.1.3
 BuildRequires:	libiterm-devel >= 0.5
 BuildRequires:	libsigc++1-devel >= 1.0.0
