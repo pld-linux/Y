@@ -1,0 +1,22 @@
+--- Y--devel--0.2--patch-1/libYc++/Makefile.am.orig	2004-01-29 22:30:13.000000000 +0100
++++ Y--devel--0.2--patch-1/libYc++/Makefile.am	2004-02-21 22:57:26.948314336 +0100
+@@ -20,7 +20,7 @@
+ Y/c++/gridlayout.h \
+ Y/c++/menu.h 
+ 
+-libYc___la_LIBADD  = $(LIBSIGC_LIBS)
++libYc___la_LIBADD  = $(LIBSIGC_LIBS) ../libY/libY.la
+ libYc___la_SOURCES = \
+ Y/c++/y.cc \
+ Y/c++/object.cc \
+--- Y--devel--0.2--patch-1/configure.ac.orig	2004-01-29 22:30:13.000000000 +0100
++++ Y--devel--0.2--patch-1/configure.ac	2004-02-21 22:59:29.440692664 +0100
+@@ -47,7 +47,7 @@
+ AM_CONDITIONAL(WANT_YITERM, test x$enable_yiterm != xno )
+ 
+ CPPFLAGS="$CPPFLAGS $FREETYPE_CPPFLAGS"
+-CFLAGS="$CFLAGS -g -O3 -pipe -fexpensive-optimizations -Wall -Werror"
++CFLAGS="$CFLAGS -pipe -fexpensive-optimizations -Wall -Werror"
+ LIBS="$LIBS"
+ 
+ AC_CONFIG_FILES(
