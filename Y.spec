@@ -1,5 +1,5 @@
 Summary:	Y Windows - modern windowing system
-Summary(pl):	Y Windows - nowoczesny system okienkowy
+Summary(pl.UTF-8):   Y Windows - nowoczesny system okienkowy
 Name:		Y
 Version:	0.2
 Release:	0.1
@@ -29,19 +29,19 @@ the following features:
 - support for hardware acceleration
 - better internationalization, localization and accessibility.
 
-%description -l pl
+%description -l pl.UTF-8
 Y to implementacja nowoczesnego systemu okienkowe. Projekt Y ma
-nastêpuj±ce cechy:
-- przezroczysto¶æ wzglêdem sieci
-- modularno¶æ
-- implementacja widgetów w serwerze
-- spójno¶æ i mo¿liwo¶æ u¿ywania motywów
-- obs³uga akceleracji sprzêtowej
-- lepsze umiêdzynarodowienie, lokalizacja i u³atwienia dostêpu.
+nastÄ™pujÄ…ce cechy:
+- przezroczystoÅ›Ä‡ wzglÄ™dem sieci
+- modularnoÅ›Ä‡
+- implementacja widgetÃ³w w serwerze
+- spÃ³jnoÅ›Ä‡ i moÅ¼liwoÅ›Ä‡ uÅ¼ywania motywÃ³w
+- obsÅ‚uga akceleracji sprzÄ™towej
+- lepsze umiÄ™dzynarodowienie, lokalizacja i uÅ‚atwienia dostÄ™pu.
 
 %package devel
 Summary:	Header files for Y Windows libraries
-Summary(pl):	Pliki nag³ówkowe bibliotek Y Windows
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe bibliotek Y Windows
 License:	LGPL
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
@@ -50,12 +50,12 @@ Requires:	%{name} = %{version}-%{release}
 %description devel
 Header files for Y Windows libraries.
 
-%description devel -l pl
-Pliki nag³ówkowe bibliotek Y Windows.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe bibliotek Y Windows.
 
 %package static
 Summary:	Static Y Windows libraries
-Summary(pl):	Statyczne biblioteki Y Windows
+Summary(pl.UTF-8):   Statyczne biblioteki Y Windows
 License:	LGPL
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
@@ -63,12 +63,12 @@ Requires:	%{name}-devel = %{version}-%{release}
 %description static
 Static Y Windows libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki Y Windows.
 
 %package utils
 Summary:	Y Windows utilities
-Summary(pl):	Programy u¿ytkowe Y Windows
+Summary(pl.UTF-8):   Programy uÅ¼ytkowe Y Windows
 License:	CPL (yiterm), GPL (the rest)
 Group:		Applications
 Requires:	%{name} = %{version}-%{release}
@@ -76,8 +76,8 @@ Requires:	%{name} = %{version}-%{release}
 %description utils
 Y Windows utilities.
 
-%description utils -l pl
-Programy u¿ytkowe Y Windows.
+%description utils -l pl.UTF-8
+Programy uÅ¼ytkowe Y Windows.
 
 %prep
 %setup -q -n Y--devel--0.2--patch-1
