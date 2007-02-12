@@ -1,5 +1,5 @@
 Summary:	Y Windows - modern windowing system
-Summary(pl.UTF-8):   Y Windows - nowoczesny system okienkowy
+Summary(pl.UTF-8):	Y Windows - nowoczesny system okienkowy
 Name:		Y
 Version:	0.2
 Release:	0.1
@@ -41,7 +41,7 @@ następujące cechy:
 
 %package devel
 Summary:	Header files for Y Windows libraries
-Summary(pl.UTF-8):   Pliki nagłówkowe bibliotek Y Windows
+Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek Y Windows
 License:	LGPL
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
@@ -55,7 +55,7 @@ Pliki nagłówkowe bibliotek Y Windows.
 
 %package static
 Summary:	Static Y Windows libraries
-Summary(pl.UTF-8):   Statyczne biblioteki Y Windows
+Summary(pl.UTF-8):	Statyczne biblioteki Y Windows
 License:	LGPL
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
@@ -68,7 +68,7 @@ Statyczne biblioteki Y Windows.
 
 %package utils
 Summary:	Y Windows utilities
-Summary(pl.UTF-8):   Programy użytkowe Y Windows
+Summary(pl.UTF-8):	Programy użytkowe Y Windows
 License:	CPL (yiterm), GPL (the rest)
 Group:		Applications
 Requires:	%{name} = %{version}-%{release}
