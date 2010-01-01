@@ -17,7 +17,7 @@ BuildRequires:	freetype-devel >= 2.1.3
 BuildRequires:	libiterm-devel >= 0.5
 BuildRequires:	libsigc++1-devel >= 1.0.0
 BuildRequires:	libtool >= 2:1.5
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Y is an implementation of a modern windowing system. The Y design has
